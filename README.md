@@ -1,5 +1,4 @@
 # Metapopulation-model.
-A metapopulation model that takes into account the peaks of disease incidence in different cities.
 # A metapopulation model of disease spread between major cities in Russia.
 
 The model shows how transport flows between the 12 largest cities in Russia affect the timing of peak epidemics of ARVI/influenza.
