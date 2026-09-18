@@ -63,6 +63,7 @@ pip install pandas numpy scipy matplotlib openpyxl seaborn
 
 # Run the full pipeline
 python model.py
+```
 
 The script will:
 
