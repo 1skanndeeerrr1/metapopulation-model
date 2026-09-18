@@ -1,33 +1,73 @@
-# Metapopulation-model.
-# A metapopulation model of disease spread between major cities in Russia.
+# Metapopulation Model of Disease Incidence Peaks in Russian Cities
 
-The model shows how transport flows between the 12 largest cities in Russia affect the timing of peak epidemics of ARVI/influenza.
+A metapopulation SIR model that incorporates inter-city transport flows to improve the prediction of epidemic peak timing across major Russian cities.
 
-Using real data on disease incidence for 2000–2015, the model demonstrates that taking inter‑city passenger flows into account makes it possible to predict with significantly greater accuracy when a peak in disease incidence will occur in different cities.
+---
 
-## What this project does.
+## Preliminary Data Analysis
 
-- Builds a metapopulation SIR model for 12 cities
-- Uses a realistic matrix of transport flows (not pure gravity)
-- Automatically calibrates parameters using 2009 data
-- Checks the quality in other years (2011, 2007, 2013, 2015, etc.)
-- Compares the accuracy of peak forecasts **with transport** and **without transport**
+Before building the model, we analyzed weekly morbidity data for 12 major Russian cities (1985–2016).
 
-**Key Finding.**  
-In all the years tested, the model with traffic flows predicts peak times significantly more accurately (the error is usually 2–4 times smaller).
+**Key findings:**
 
-## Quick start.
+- There is a **high and statistically significant correlation** in the dynamics of disease incidence between cities (Pearson correlation coefficients mostly range from 0.65 to 0.88).
+- Particularly strong synchronization is observed between geographically and transport-linked cities (e.g., Moscow – Saint Petersburg, Yekaterinburg – Chelyabinsk – Perm, Novosibirsk – Omsk).
+- A total of **66 significant correlation pairs** were identified (p < 0.01).
+
+These results indicate that epidemic waves in different cities are not independent. One of the important mechanisms behind this synchronization is **inter-city transport flows**.
+
+Full analysis code, correlation matrices, and heatmap are available in the notebook:
+
+📄 [`corr.ipynb`](corr.ipynb)
+
+---
+
+## Model Overview
+
+The project implements a **metapopulation SIR model** for 12 large Russian cities:
+
+- Moscow  
+- Saint Petersburg  
+- Novosibirsk  
+- Yekaterinburg  
+- Nizhny Novgorod  
+- Samara  
+- Omsk  
+- Kazan  
+- Chelyabinsk  
+- Ufa  
+- Perm  
+- Rostov-on-Don  
+
+**Main features:**
+
+- Realistic (expert-based) mobility matrix between cities
+- Automatic calibration of parameters on 2009 data
+- Out-of-sample validation on multiple years (2011, 2003, 2007, 2013, 2015)
+- Comparison of peak timing prediction accuracy **with** and **without** transport flows
+- Extended set of evaluation metrics (MAE, RMSE, Hit Rate, correlation, etc.)
+
+**Key result:**  
+Accounting for transport flows consistently reduces the error in predicting epidemic peak weeks (often by a factor of 2–4).
+
+---
+
+## Quick Start
 
 ```bash
-# 1. Install dependencies
-pip install pandas numpy scipy matplotlib openpyxl
+# Install dependencies
+pip install pandas numpy scipy matplotlib openpyxl seaborn
 
-# 2. Place the data file next to the script
+# Place the data file in the project directory
 # Zab_v_bolshikh_gorodakh.xlsx
 
-# 3. Run
-python metapop_realistic.py
+# Run the full pipeline
+python model.py
 
+The script will:
 
-├── metapop_realistic.py          # main script
-├── Zab_v_bolshikh_gorodakh.xlsx  # initial data
+Calibrate the model on 2009 data
+Validate it on several other years
+Compute detailed metrics
+Generate comparison plots for all years
+Save results to Excel files
