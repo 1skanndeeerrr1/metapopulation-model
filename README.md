@@ -65,14 +65,8 @@ pip install pandas numpy scipy matplotlib openpyxl seaborn
 python model.py
 ```
 
-**Project structure:*
+**Project structure:**
+
 ├── corr.ipynb                        # Correlation analysis of morbidity data
-├── metapop_realistic.py              # Main model script
+├── model.py                          # Main model script
 ├── Zab_v_bolshikh_gorodakh.xlsx      # Source morbidity data
-├── realistic_calibration_2009.xlsx
-├── realistic_validation_*.xlsx
-├── metrics_summary_all_years.xlsx
-├── mae_comparison.xlsx
-├── realistic_mobility_matrix.xlsx
-├── all_years_peaks_comparison.png
-└── peaks_YYYY.png                    # Individual year plots
