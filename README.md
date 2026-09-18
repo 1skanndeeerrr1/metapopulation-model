@@ -111,7 +111,7 @@ Parameters (`β`, `γ`, mobility scale, and initial seed size) are automatically
 | Year | MAE with transport | MAE without transport |
 |------|--------------------|-----------------------|
 | 2009 | ~1.11 weeks        | ~4.49 weeks           |
-| 2011 | ~1.18 weeks        | ~4.20 weeks           |
+| 2011 | ~1.19 weeks        | ~4.52 weeks           |
 | 2015 | ~0.60 weeks        | ~3.93 weeks           |
 
 ---
