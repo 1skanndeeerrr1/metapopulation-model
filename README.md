@@ -70,3 +70,6 @@ python model.py
 ├── corr.ipynb                        # Correlation analysis of morbidity data
 ├── model.py                          # Main model script
 ├── Zab_v_bolshikh_gorodakh.xlsx      # Source morbidity data
+
+├── metapop_realistic.py          # main script
+├── Zab_v_bolshikh_gorodakh.xlsx  # initial data
