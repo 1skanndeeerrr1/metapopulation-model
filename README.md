@@ -6,12 +6,12 @@ A metapopulation SIR model that incorporates inter-city transport flows to impro
 
 ## Preliminary Data Analysis
 
-Before building the model, we analyzed weekly morbidity data for 12 major Russian cities (1985–2016).
+Before building the model, we analyzed weekly morbidity data for 12 major Russian cities (1985-2016).
 
 **Key findings:**
 
 - There is a **high and statistically significant correlation** in the dynamics of disease incidence between cities (Pearson correlation coefficients mostly range from 0.65 to 0.88).
-- Particularly strong synchronization is observed between geographically and transport-linked cities (e.g., Moscow – Saint Petersburg, Yekaterinburg – Chelyabinsk – Perm, Novosibirsk – Omsk).
+- Particularly strong synchronization is observed between geographically and transport-linked cities (e.g., Moscow – Saint Petersburg, Yekaterinburg - Chelyabinsk - Perm, Novosibirsk - Omsk).
 - A total of **66 significant correlation pairs** were identified (p < 0.01).
 
 These results indicate that epidemic waves in different cities are not independent. One of the important mechanisms behind this synchronization is **inter-city transport flows**.
@@ -48,7 +48,7 @@ The project implements a **metapopulation SIR model** for 12 large Russian citie
 - Extended set of evaluation metrics (MAE, RMSE, Hit Rate, correlation, etc.)
 
 **Key result:**  
-Accounting for transport flows consistently reduces the error in predicting epidemic peak weeks (often by a factor of 2–4).
+Accounting for transport flows consistently reduces the error in predicting epidemic peak weeks (often by a factor of 2-4).
 
 ---
 
@@ -62,7 +62,7 @@ pip install pandas numpy scipy matplotlib openpyxl seaborn
 # Zab_v_bolshikh_gorodakh.xlsx
 
 # Run the full pipeline
-python metapop_realistic.py
+python model.py
 ```
 
 The script will:
@@ -70,23 +70,15 @@ The script will:
 2. Validate it on several other years
 3. Compute detailed metrics
 4. Generate comparison plots for all years
-5. Save results to Excel files
 
 ---
 
 ## Project Structure
 
 ```
-├── corr.ipynb                        # Correlation analysis of morbidity data
-├── metapop_realistic.py              # Main model script
-├── Zab_v_bolshikh_gorodakh.xlsx      # Source morbidity data
-├── realistic_calibration_2009.xlsx
-├── realistic_validation_*.xlsx
-├── metrics_summary_all_years.xlsx
-├── mae_comparison.xlsx
-├── realistic_mobility_matrix.xlsx
-├── all_years_peaks_comparison.png
-└── peaks_YYYY.png                    # Individual year plots
+├── corr.ipynb                    # Correlation analysis of morbidity data
+├── model.py                      # Main model script
+├── Zab_v_bolshikh_gorodakh.xlsx  # Source morbidity data
 ```
 
 ---
@@ -142,8 +134,3 @@ Parameters (`β`, `γ`, mobility scale, and initial seed size) are automatically
 - Add uncertainty quantification
 
 ---
-
-## License
-
-MIT
-```
