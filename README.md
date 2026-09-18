@@ -65,10 +65,14 @@ pip install pandas numpy scipy matplotlib openpyxl seaborn
 python model.py
 ```
 
-The script will:
-
-Calibrate the model on 2009 data
-Validate it on several other years
-Compute detailed metrics
-Generate comparison plots for all years
-Save results to Excel files
+**Project structure:*
+├── corr.ipynb                        # Correlation analysis of morbidity data
+├── metapop_realistic.py              # Main model script
+├── Zab_v_bolshikh_gorodakh.xlsx      # Source morbidity data
+├── realistic_calibration_2009.xlsx
+├── realistic_validation_*.xlsx
+├── metrics_summary_all_years.xlsx
+├── mae_comparison.xlsx
+├── realistic_mobility_matrix.xlsx
+├── all_years_peaks_comparison.png
+└── peaks_YYYY.png                    # Individual year plots
